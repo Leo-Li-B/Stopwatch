@@ -29,10 +29,16 @@ class ViewController: UIViewController {
         timer=Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateElapsedTimeLabel(timer:)), userInfo: nil , repeats: true)
         }
     
+    @IBAction func pauseButtonTapped(_ sender: UIButton) {
+        print("pause")
+        
+        stopwatch.pause()
+    }
     
     @IBAction func stopButtonTapped(_ sender: UIButton) {
         print("stop")
         stopwatch.stop()
+        elapsedTimeLabel.text = "00:00:00"
     }
     
     @objc func updateElapsedTimeLabel(timer:Timer) {
